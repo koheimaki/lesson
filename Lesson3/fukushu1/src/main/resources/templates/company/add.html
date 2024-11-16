@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>企業追加</title>
+</head>
+<body>
+    <h1>企業追加</h1>
+    <form th:action="@{/companys/add}" th:object="${company}" th:method="post">
+        <p>企業名: <input type="text" th:field="*{name}"></p>
+        <p><button type="submit">登録</button></p>
+    </form>
+    <a th:href="@{/companys/list}">一覧画面</a>
+</body>
+</html>
