@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>店舗追加</title>
+</head>
+<body>
+    <h1>店舗追加</h1>
+    <form th:action="@{/shops/add}" th:object="${shop}" th:method="post">
+        <input type="hidden" th:field="*{id}">
+        <p>店名: <input type="text" th:field="*{name}"></p>
+        <p>住所: <input type="text" th:field="*{address}"></p>
+        <p>店舗説明: <input type="text" th:field="*{details}"></p>
+        <p><button type="submit">登録</button></p>
+    </form>
+    <a th:href="@{/shops/show}">一覧画面へ</a>
+</body>
+</html>

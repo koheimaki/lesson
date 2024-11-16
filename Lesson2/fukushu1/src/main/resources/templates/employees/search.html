@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>社員の検索</title>
+</head>
+<body>
+    <h1>社員の検索</h1>
+    <form th:action="@{/employees/search}" th:method="get">
+        <p><input type="text" name="firstName" placeholder="名前"></p>
+        <button type="submit">名前で検索</button>
+    </form>
+    <h1>検索結果</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>名前</th>
+                <th>苗字</th>
+                <th>社員コード</th>
+                <th>誕生日</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="employee : ${employees}">
+                <td th:text="${employee.id}">ID</td>
+                <td th:text="${employee.firstName}">名前</td>
+                <td th:text="${employee.lastName}">苗字</td>
+                <td th:text="${employee.code}">社員コード</td>
+                <td th:text="${employee.birthDate}">誕生日</td>
+                <td>
+                    <a th:href="@{/employeess/edit/{id}(id=${employee.id})}">編集</a>
+                    <a th:href="@{/employeess/delete/{id}(id=${employee.id})}">削除</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

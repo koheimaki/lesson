@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>社員更新</title>
+</head>
+<body>
+    <h1>社員の更新</h1>
+    <form th:action="@{/employees/edit}" th:object="${employee}" th:method="post">
+        <input type="hidden" th:field="*{id}">
+        <p>名前:<input type="text" th:field="*{firstName}"></p>
+        <p>苗字: <input type="text" th:field="*{lastName}"></p>
+        <p>社員コード: <input type="text" th:field="*{code}"></p>
+        <p>誕生日: <input type="text" th:field="*{birthDate}"></p>
+        <p><button type="submit">更新登録</button></p>
+    </form>
+</body>
+</html>

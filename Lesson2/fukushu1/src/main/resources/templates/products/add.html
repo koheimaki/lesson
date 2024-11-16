@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http.//www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>商品の追加</title>
+    </head>
+    <body>
+        <h1>商品登録</h1>
+        <form th:action="@{/products/add}" th:object="${product}" th:method="post">
+            <p>商品名: <input type="text" th:field="*{name}"></p>
+            <p>商品コード: <input type="text" th:field="*{code}"></p>
+            <p>発売日: <input type="date" th:field="*{releaseDate}"></p>
+            <p>価格: <input type="number" th:field="*{price}"></p>
+            <p><button type="submit">登録</button></p>
+        </form>
+    </body>
+</html>

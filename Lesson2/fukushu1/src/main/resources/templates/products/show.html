@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>商品一覧</title>
+    </head>
+    <body>
+        <h1>商品一覧</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>商品名</th>
+                    <th>商品コード</th>
+                    <th>発売日</th>
+                    <th>価格</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="product : ${products}">
+                    <td th:text="${product.id}"></td>
+                    <td th:text="${product.name}"></td>
+                    <td th:text="${product.code}"></td>
+                    <td th:text="${product.releaseDate}"></td>
+                    <td th:text="${product.price}"></td>
+                    <td>
+                        <a th:href="@{/products/edit/{id}(id=${product.id})}">編集</a>
+                        <a th:href="@{/products/delete/{id}(id=${product.id})}">削除</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/products/add}">商品を追加する</a>
+    </body>
+</html>
