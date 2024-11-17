@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ユーザーの更新</title>
+</head>
+<body>
+    <h1>ユーザーの更新</h1>
+    <form th:action="@{/users/edit}" th:object="${user}" th:method="post">
+        <input type="hidden" th:field="*{id}">
+        <p>名前: <input type="text" th:field="*{name}"></p>
+        <p><button type="submit">登録</button></p>
+    </form>
+</body>
+</html>

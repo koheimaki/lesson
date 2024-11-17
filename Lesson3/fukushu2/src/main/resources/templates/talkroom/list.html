@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:ht="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>トークルーム一覧</title>
+</head>
+<body>
+    <h1>トークルーム一覧</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>ルーム名</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="talkroom : ${talkrooms}">
+                <td th:text="${talkroom.id}">ID</td>
+                <td th:text="${talkroom.roomName}">トークルーム名</td>
+                <td>
+                    <a th:href="@{/talkrooms/edit/{id}(id=${talkroom.id})}">編集</a>
+                    <a th:href="@{/talkrooms/delete/{id}(id=${talkroom.id})}">削除</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/talkrooms/add}">ルーム追加</a>
+</body>
+</html>

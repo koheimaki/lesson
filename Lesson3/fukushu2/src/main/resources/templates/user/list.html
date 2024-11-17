@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ユーザー追加</title>
+</head>
+<body>
+    <h1>ユーザー追加</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>ニックネーム</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.Id}">ID</td>
+                <td th:text="${user.name}">ニックネーム</td>
+                <td>
+                    <a th:href="@{/users/edit/{id}(id=${user.id})}">編集</a>
+                    <a th:href="@{/users/delete/{id}(id=${user.id})}">削除</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/users/add}">ユーザー追加</a>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ルーム追加</title>
+</head>
+<body>
+    <h1>ルーム追加</h1>
+    <form th:action="@{/talkrooms/add}" th:object="${talkRoom}" th:method="post">
+        <p>ルーム名: <input type="text" th:field="*{roomName}"></p>
+        <p>ユーザーリスト</p>
+        <div th:each="u : ${userList}">
+            <input type="checkbox" th:field="*{users}" th:value="${u.id}">
+            <span th:text="${u.name}"></span>
+        </div>
+        <p><button type="submit">登録</button></p>
+    </form>
+</body>
+</html>
