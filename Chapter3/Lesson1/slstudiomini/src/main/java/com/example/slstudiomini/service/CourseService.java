@@ -9,7 +9,12 @@ import org.springframework.stereotype.Service;
 import com.example.slstudiomini.model.Course;
 import com.example.slstudiomini.repository.CourseRepository;
 
+import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
 import jakarta.transaction.Transactional;
 
 @Service
@@ -17,14 +22,59 @@ public class CourseService {
     @Autowired
     private CourseRepository courseRepository;
 
-    public List<Course> findAllCourses() {
-        return courseRepository.findAll();
-    }
+    @PersistenceContext
+    private EntityManager entityManager;
 
-    public Course findCourseById(Long id) {
-        return courseRepository.findById(id)
-            .orElseThrow(() -> new EntityNotFoundException("Course Not Found With id = " + id));
+    //deletedAtがnullじゃないのは排除
+    public List<Course> findAllCourses() {
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Course> cq = cb.createQuery(Course.class);
+        Root<Course> course = cq.from(Course.class);
+
+        cq.select(course)
+        .where(cb.isNull(course.get("deletedAt")));
+
+        return entityManager.createQuery(cq).getResultList();
     }
+    // public List<Course> findAllCourses() {
+    //     CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+    //     CriteriaQuery<Course> cq = cb.createQuery(Course.class);
+    //     Root<Course> course = cq.from(Course.class);
+
+    //     cq.select(course);
+    //     return entityManager.createQuery(cq).getResultList();
+    // }
+
+    // public List<Course> findAllCourses() {
+    //     return courseRepository.findAll();
+    // }
+
+    //deletedAtがnullじゃないのは排除
+    public Course findCourseById(Long id) {
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Course> cq = cb.createQuery(Course.class);
+        Root<Course> course = cq.from(Course.class);
+
+        cq.select(course)
+        .where(cb.equal(course.get("id"), id), cb.isNull(course.get("deletedAt")));
+
+        return entityManager.createQuery(cq).getResultStream()
+                .findFirst().orElseThrow(() -> new EntityNotFoundException("Course Not Found With id = " + id));
+    }
+    // public Course findCourseById(Long id) {
+    //     CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+    //     CriteriaQuery<Course> cq = cb.createQuery(Course.class);
+    //     Root<Course> course = cq.from(Course.class);
+    //     cq.select(course);
+    //     cq.where(cb.equal(course.get("id"), id));
+    //     return entityManager.createQuery(cq).getResultStream()
+    //             .findFirst().orElseThrow(() -> new EntityNotFoundException("Course Not Found With id = " + id));
+    // }
+
+    // public Course findCourseById(Long id) {
+    //     return courseRepository.findById(id)
+    //         .orElseThrow(() -> new EntityNotFoundException("Course Not Found With id = " + id));
+    // }
 
     @Transactional
     public Course save(Course course) {

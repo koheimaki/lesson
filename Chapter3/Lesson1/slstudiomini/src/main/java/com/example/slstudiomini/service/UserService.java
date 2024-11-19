@@ -13,7 +13,13 @@ import com.example.slstudiomini.model.User;
 import com.example.slstudiomini.repository.AuthorityRepository;
 import com.example.slstudiomini.repository.UserRepository;
 
+import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Join;
+import jakarta.persistence.criteria.Root;
 
 @Service
 public class UserService {
@@ -21,9 +27,29 @@ public class UserService {
     private UserRepository userRepository;
     @Autowired
     private AuthorityRepository authorityRepository;
+    @PersistenceContext
+    private EntityManager entityManager;
 
     public List<User> findAllUsers() {
         return userRepository.findAll();
+    }
+
+    //ROLE_USERのみ取得
+    public List<User> findAllRoleUsers() {
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<User> cq = cb.createQuery(User.class);
+        Root<User> user = cq.from(User.class);
+
+        cq.select(user);
+
+        Join<User, Authority> authorities = user.join("authorities");
+        cq.where(
+            cb.and(
+                cb.equal(authorities.get("authority"), "ROLE_USER"),
+                cb.isTrue(user.get("enabled"))
+            ));
+        
+            return entityManager.createQuery(cq).getResultList();
     }
 
     public Optional<User> findByUserId(Long id) {

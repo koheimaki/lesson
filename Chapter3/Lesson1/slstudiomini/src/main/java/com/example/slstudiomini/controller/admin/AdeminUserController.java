@@ -23,7 +23,7 @@ public class AdeminUserController {
     
     @GetMapping
     public String showList(Model model) {
-        List<User> users = userService.findAllUsers();
+        List<User> users = userService.findAllRoleUsers();
         model.addAttribute("users", users);
         return "/admin/user-list";
     }

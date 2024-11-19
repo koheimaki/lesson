@@ -2,8 +2,6 @@ package com.example.slstudiomini.model;
 
 import java.time.LocalDateTime;
 
-import org.hibernate.annotations.SQLRestriction;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,10 +10,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
-@SQLRestriction("deleted_at IS NULL")
+// @SQLRestriction("deleted_at IS NULL")
 @Table(name = "lessons")
 public class Lesson {
     @Id
@@ -40,7 +38,7 @@ public class Lesson {
     @Column
     private LocalDateTime deletedAt;
 
-    @NotBlank(message = "コースの選択は必須です")
+    @NotNull(message = "コースの選択は必須です")
     @ManyToOne
     @JoinColumn(name = "course_id", nullable = false)
     private Course course;
