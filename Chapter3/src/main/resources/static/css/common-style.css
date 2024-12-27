@@ -1,0 +1,208 @@
+/* 見出しの設定 */
+.head-h1 {
+    color: #eb7307; /* 文字色をオレンジに設定 */
+}
+
+/* コンテンツ本体の設定 */
+.content-body {
+    background-color: #f7f7f7; /* 背景色を薄いグレーに設定 */
+    padding: 20px; /* 内側余白を追加 */
+}
+
+.content-body-no-color{
+    padding: 30px 0 5px 0;
+}
+
+/* テーブル内のボタンの設定 */
+/* 編集 */
+.table-button-edit {
+    background-color: #00AB8E; /* ボタンの背景色を緑色に設定 */
+    color: white; /* ボタンの文字色を白色に設定 */
+    border-radius: 5px; /* 枠線角を丸くする */
+    border: none; /* 標準の枠線を削除 */
+}
+
+/* 編集：マウスを合わせた時にアニメーション */
+/* HTMLにこれをクラスとして割り当てる必要はありません */
+.table-button-edit:hover {
+    background-color: #0bc7a8;/*背景色の変更*/
+}
+
+/* 削除 */
+.table-button-delete {
+    background-color: #EE220C; /* ボタンの背景色を赤色に設定 */
+    color: white; /* ボタンの文字色を白色に設定 */
+    border-radius: 5px; /* 枠線角を丸くする */
+    border: none; /* 標準の枠線を削除 */
+}
+
+/* 削除：マウスを合わせた時にアニメーション */
+/* HTMLにこれをクラスとして割り当てる必要はありません */
+.table-button-delete:hover {
+    background-color: #ff6e5e;/*背景色の変更*/
+}
+
+/* 詳細 */
+.table-button-detail {
+    background-color: #5E5E5E; /* ボタンの背景色をグレーに設定 */
+    color: white; /* ボタンの文字色を白色に設定 */
+    border-radius: 5px; /* 枠線角を丸くする */
+    border: none; /* 標準の枠線を削除 */
+}
+
+/* 詳細：マウスを合わせた時にアニメーション */
+/* HTMLにこれをクラスとして割り当てる必要はありません */
+.table-button-detail:hover {
+    background-color: #8a8a8a;/*背景色の変更*/
+}
+
+/* 本文内のボタンのスタイル */
+.common-button-edit {
+    background-color: #00AB8E; /* 編集ボタンの背景色を緑色に設定 */
+    color: white; /* 文字色を白色に設定 */
+    border-radius: 5px; /* 枠線角を丸くする */
+    border: none; /* 標準の枠線を削除 */
+    margin: 5px 0; /* ボタンの上下に5pxの余白を追加 */
+}
+
+/* 編集：マウスを合わせた時にアニメーション */
+/* HTMLにこれをクラスとして割り当てる必要はありません */
+.common-button-edit:hover {
+    background-color: #0bc7a8;/*背景色の変更*/
+}
+
+.common-button-delete {
+    background-color: #EE220C; /* 削除ボタンの背景色を赤色に設定 */
+    color: white; /* 文字色を白色に設定 */
+    border-radius: 5px; /* 枠線角を丸くする */
+    border: none; /* 標準の枠線を削除 */
+    margin: 5px 0; /* ボタンの上下に5pxの余白を追加 */
+}
+
+/* 削除：マウスを合わせた時にアニメーション */
+/* HTMLにこれをクラスとして割り当てる必要はありません */
+.common-button-delete:hover {
+    background-color: #ff6e5e;/*背景色の変更*/
+}
+
+/* レシピ画像一覧の横並びスタイル */
+.image-wrap {
+    display: flex; /* コンテンツをフレックスボックスで配置 */
+    flex-wrap: wrap; /* 横幅に収まらない画像は折り返す */
+    width: 100%; /* 全幅を使用する */
+    margin: 10px 0; /* 上下に10pxの余白を追加 */
+}
+
+.image-box {
+    width: 20%; /* 各画像ボックスの幅を全幅の20%に設定 */
+    padding: 0 10px; /* 左右に10pxのパディングを追加 */
+    box-sizing: border-box; /* パディングも幅に含める */
+}
+
+.image-box img{
+    width: 100%;
+    height:auto;
+}
+
+/* テーブル全体のスタイル */
+.table-container {
+    text-align: center; /* テーブル全体を中央揃え */
+}
+
+/* 共通のテーブルスタイル */
+.common-table {
+    width: 100%; /* テーブルを全幅に設定 */
+    border-collapse: collapse; /* 枠線を重ならないようにする */
+    margin: 20px auto; /* 上下に余白を確保し、中央ぞろえ */
+    text-align: center; /* テーブル内のテキストを中央揃え */
+    color: #5E5E5E; /* 文字色をグレーに設定 */
+}
+
+/* テーブルのタイトル行 (ヘッダー) */
+.common-table thead th {
+    border-bottom: 2px solid #929292; /* 下線をグレーで太めに設定 */
+    padding: 5px; /* セル内に余白を追加 */
+    min-width: 30px; /* 最小幅を指定 */
+}
+
+/* テーブルの通常行 (ボディ) */
+.common-table tbody td {
+    border-bottom: 2px solid #fff; /* 下線を白色で設定 */
+    padding: 5px; /* セル内に余白を追加 */
+    min-width: 30px; /* 最小幅を指定 */
+}
+
+/* 新規登録ボタン・検索ボタンのスタイル */
+.add-search-button {
+    color: white; /* 文字色を白色に設定 */
+    background-color: #eb7307; /* 背景色をオレンジに設定 */
+    border-radius: 10px; /* ボタン角を角丸にする */
+    border: solid 3px #eb7307; /* 枠線を背景色と同じオレンジに設定 */
+    width: 200px; /* 幅を200pxで設定 */
+    font-size: 1.5rem; /* フォントサイズを大きく設定 */
+    font-weight: bold; /* 太字に設定 */
+}
+
+/*マウスを合わせた時にアニメーション*/
+.add-search-button:hover {
+    background-color: #f7921e;/*背景色の変更*/
+    border: solid 3px #f7921e;
+}
+
+/* 保存ボタンのスタイル */
+.save-button {
+    width: 200px; /* 幅を200pxで設定 */
+    height: 50px; /* 高さを50pxで設定 */
+    background-color: #00aa8d; /* 背景色を緑色に設定 */
+    color: white; /* 文字色を白色に設定 */
+    border-radius: 5px; /* ボタン角を丸くする */
+    border: none; /* 枠線を非表示 */
+    font-size: 1.5rem; /* フォントサイズを大きく設定 */
+}
+
+.save-button:hover {
+    background-color: #00a7aa;
+    border: solid 3px #00a7aa;
+}
+
+/* フォーム全体のレイアウト */
+.form-container {
+    display: grid; /* グリッドレイアウトを使用 */
+    grid-template-columns: 150px 1fr; /* 左にラベル(150px)、右に入力欄 */
+    gap: 10px 20px; /* 縦10px、横20pxの余白を追加 */
+    max-width: 100%; /* 横幅を最大に設定 */
+    align-items: center;/*中央揃え*/
+}
+
+/* フォームラベルのスタイル */
+.form-container label {
+    text-align: left; /* テキストを左寄せ */
+    font-weight: bold; /* 太字にする */
+}
+
+/* 短い入力フォーム */
+.input-form-short {
+    width: 30%; /* 横幅を30%に設定 */
+    height: 40px; /* 縦幅を40pxに設定 */
+    outline: none; /* フォーカス時の枠線を非表示 */
+    border: solid 3px #d3d3d3; /* グレーで枠線を追加 */
+    border-radius: 5px; /* 入力フォーム角を丸く設定 */
+}
+
+/* 中間サイズの入力フォーム */
+.input-form-medium {
+    width: 60%; /* 横幅を60%に設定 */
+    height: 30px; /* 縦幅を30pxに設定 */
+    outline: none; /* フォーカス時の枠線を非表示 */
+    border: solid 3px #d3d3d3; /* グレーで枠線を追加 */
+    border-radius: 5px; /* 入力フォーム角を丸く設定 */
+}
+
+/* 長い入力フォーム */
+.input-form-long {
+    width: 100%; /* 横幅を100%に設定 */
+    height: 50px; /* 縦幅を50pxに設定 */
+    outline: none; /* フォーカス時の枠線を非表示 */
+    border: solid 3px #d3d3d3; /* グレーで枠線を追加 */
+    border-radius: 5px; /* 入力フォーム角を丸く設定 */
+}

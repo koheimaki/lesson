@@ -1,0 +1,31 @@
+/* フォーム全体のレイアウト */
+.form-container-calorie {
+    gap: 10px 20px; /* 縦10px、横20pxの余白を追加 */
+    max-width: 100%; /* 横幅を最大に設定 */
+    margin: 0 auto; /* フォームを中央揃え */
+    padding: 20px; /* 内側余白 */
+}
+
+.form-table{
+    font-weight: normal;
+    text-align: left;
+    margin: 3px 0;
+}
+
+.form-table th{
+    font-weight: bold;
+    width: 250px;
+}
+
+.form-table td{
+    width: 500px;
+    margin: 3px 0;
+}
+
+.span-table{
+    margin-left: 10px;
+}
+
+.form-button-container{
+    text-align: center;
+}

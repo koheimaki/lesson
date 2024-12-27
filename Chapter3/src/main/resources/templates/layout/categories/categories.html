@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout/admin-index :: layout (~{::title}, ~{::link}, ~{::body})}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/categories/categories.css}">
+    <title>カテゴリー管理</title>
+</head>
+<body>
+<!-- <div class="main-content"> -->
+<div>
+    <h1 class="head-h1">カテゴリー管理</h1>
+    <button class="add-search-button">新規登録</button>
+    <div style = "margin: 20px;"></div>
+    <div class="content-body">
+    <table class="common-table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>カテゴリー名</th>
+            <th>編集</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>中華</td>
+            <td>
+                <button class="common-button-edit">編集</button>
+                <button class="common-button-delete">削除</button>
+            </td>
+        </tr>
+        <!-- <tr>
+            <td>2</td>
+            <td>洋食</td>
+            <td>
+                <button class="btn-edit">編集</button>
+                <button class="btn-delete">削除</button>
+            </td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>和食</td>
+            <td>
+                <button class="btn-edit">編集</button>
+                <button class="btn-delete">削除</button>
+            </td>
+        </tr> -->
+        </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

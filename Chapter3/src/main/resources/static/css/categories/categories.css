@@ -1,0 +1,75 @@
+/* カテゴリー管理タイトル */
+.category-title {
+    color: #eb7307;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #eb7307;
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* 新規登録ボタン */
+.btn-register {
+    background-color: #eb7307;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.btn-register:hover {
+    background-color: #d36205;
+}
+
+/* カテゴリー管理テーブル */
+.category-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+.category-table th, 
+.category-table td {
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    padding: 10px;
+}
+
+.category-table th {
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+
+.category-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* 編集・削除ボタン */
+.btn-edit, .btn-delete {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-edit {
+    background-color: #28a745;
+    margin-right: 5px;
+}
+
+.btn-edit:hover {
+    background-color: #218838;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}

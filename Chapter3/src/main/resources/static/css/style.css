@@ -1,0 +1,109 @@
+/* ページ全体のレイアウトの基本設定 */
+body {
+  margin: 0; /* ページ全体の余白なし */
+  font-family: Arial, sans-serif; /* 標準フォントの設定 */
+  overflow-x: hidden; /* 横スクロールを非表示にする */
+}
+
+/* ヘッダー部分のスタイル */
+header {
+  border-bottom: 3px solid #d3d3d3; /* ヘッダーの下に薄い灰色のボーダーを追加 */
+}
+
+/* ヘッダー内のコンテナ部分のスタイル */
+.header-container {
+  margin-left: 20px; /* 左に余白を入れる */
+  width: 100%; /* 横幅を全体に広げる */
+  height: 110px; /* 高さを固定 */
+  display: flex; /* 横並びにする */
+  justify-content: space-between; /* 子要素を左右に分ける */
+  align-items: center; /* 子要素を中央揃え */
+  overflow-x: hidden; /* 横スクロールを非表示 */
+}
+
+/* ヘッダーロゴのイメージ画像のスタイル */
+.header-logo img {
+  width: auto; /* 横幅を自動調整 */
+  height: 80px; /* 高さを固定 */
+}
+
+/* ヘッダー右側ログアウト部分の配置 */
+.header-logout {
+  display: flex; /* 横並びにする */
+  align-items: center; /* 縦方向に要素を中央揃え */
+}
+
+/* ログアウトボタン（リンク）のスタイル */
+.header-logout a {
+  text-decoration: none; /* アンダーラインを削除 */
+  padding: 0 20px; /* 左右に20pxの余白 */
+  margin-right: 20px; /* 右側に余白を追加 */
+  color: #eb7307; /* テキストカラーをオレンジに設定 */
+  border: 3px solid #eb7307; /* オレンジのボーダーを設定 */
+  border-radius: 30px; /* ボタンの角を丸くする */
+}
+
+/* ユーザー情報表示部分のスタイル */
+.header-logout h4 {
+  margin-left: 10px; /* 左側に余白を追加 */
+  padding: 10px; /* 内側に余白を追加 */
+  border-radius: 5px; /* 角を丸くする */
+  background-color: #aaaaaa; /* 背景色をグレーに設定 */
+  color: white; /* テキストカラーを白に設定 */
+  margin-right: 20px; /* 右に余白を追加 */
+}
+
+/* メインコンテナのスタイル */
+.container {
+  display: flex; /* 横並びレイアウト */
+}
+
+/* サイドバーのスタイル */
+.sidebar {
+  top: 110px; /* 上部のオフセット位置 */
+  margin-left: 10px; /* 左側に余白 */
+  width: 200px; /* 固定幅を設定 */
+  background-color: white; /* 背景色は白 */
+  color: #eb7307; /* テキストカラーはオレンジ */
+}
+
+/* サイドバー内の「マイページ」リンクのスタイル */
+.my-page {
+  color: #eb7307; /* オレンジ色 */
+  text-decoration: none; /* アンダーラインを削除 */
+}
+
+/* サイドバー内のカテゴリーリンクのスタイル */
+.category {
+  color: black; /* テキストカラーは黒 */
+  text-decoration: none; /* アンダーラインを削除 */
+  display: block; /* ブロック表示でリンク全体がクリック可能 */
+  padding: 10px; /* 内側に余白を追加 */
+  border-radius: 5px; /* 角を丸くする */
+  transition: background-color 0.3s ease; /* 背景色の変化をスムーズにする */
+}
+
+/* サイドバー内リンクをホバーしたときの背景色変更 */
+.sidebar a:hover {
+  background-color: #d3d3d3; /* 灰色に変更 */
+}
+
+/* サイドバーのリスト要素スタイル */
+.sidebar li {
+  list-style: none; /* 箇条書きのマークを非表示 */
+}
+
+/* メインコンテンツ部分のスタイル */
+.main-content {
+  padding: 20px; /* コンテンツ全体に余白を入れる */
+  border-left: 3px solid #d3d3d3; /* 左側に仕切り線を設定 */
+  width: 100%;
+}
+
+/* フッター部分のスタイル */
+footer {
+  text-align: center; /* テキストを中央揃え */
+  background-color: grey; /* 背景色を灰色に設定 */
+  color: white; /* テキストカラーは白 */
+  padding: 1px; /* 上下に少し余白を入れる */
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja" th:fragment="layout(title,css,body)"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- 動的タイトル -->
+    <title th:replace="${title}">常に表示されるサイドバー</title>
+    <!-- CSSファイルを読み込む -->
+    <!-- 共通CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/common-style.css}">
+    <!-- 動的CSS -->
+    <link rel="stylesheet" th:replace="${css}">
+</head>
+<!--ヘッダー-->
+<header>
+    <div class="header-container">
+        <div class="header-logo">
+            <a th:href="@{/notfound}"><img alt="ロゴ" class="logo-a" src="/images/logo_long__1_.png"></a>
+        </div>
+        <div class="header-logout">
+            <a class="create-recipe" th:href="@{/user/recipes/new}"><h3>レシピを作成する</h3></a>
+            <h4>ログアウト</h4>
+        </div>
+    </div>
+</header>
+<body>
+<div class="container">
+    <!-- サイドバー -->
+    <div class="sidebar">
+        <a class="my-page" th:href="@{/notfound}"><h2>マイページ</h2></a>
+        <h2>レシピ</h2>
+        <ul>
+            <li><a class="category" th:href="@{/notfound}">和食</a></li>
+            <li><a class="category" th:href="@{/notfound}">中華</a></li>
+            <li><a class="category" th:href="@{/notfound}">洋食</a></li>
+        </ul>
+    </div>
+    <!-- メインコンテンツ -->
+    <div class="main-content">
+        <div id="body" th:replace="${body}"></div>
+    </div>
+</div>
+</body>
+<!--フッター-->
+<footer>
+    <p class="copyright">Copyright © 2024 Healthy Mate Ltd. All rights reserved</p>
+</footer>
+</html>

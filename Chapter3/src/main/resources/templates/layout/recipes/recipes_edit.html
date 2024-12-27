@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org"
+th:replace="~{layout/admin-index :: layout(~{::title},~{::link},~{::body/content()})}">
+<!--
+管理者画面を編集する方はこちら
+th:replace="~{layout/admin-index :: layout(~{::title},~{::link},~{::body/content()})}"
+一般ユーザーを編集する方はこちら
+th:replace="~{layout/index :: layout(~{::title},~{::link},~{::body/content()})}"
+上記th:replaceを変えて下さい
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/recipes/recipes.css}">
+    <title>レシピ編集</title>
+</head>
+<body>
+    <h1 class="head-h1">レシピ編集</h1>
+    <div  class="form-container-recipes">
+        <form th:method="post" th:action="@{/admin/recipes/edit/{id}(id=${recipeDTO.id})}" enctype="multipart/form-data" th:object="${recipeDTO}">
+            <input type="hidden" th:field="*{id}">
+            <table class="form-table-body">
+                <tr>
+                    <th><label for="recipe-name">レシピ名</label></th>
+                    <td><input type="text" id="recipe-name" class="input-form-long-recipes" th:field="*{name}" required>
+                        <div class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</div></td>
+                </tr>
+                <tr>
+                    <th><label for="recipe-category">カテゴリー</label></th>
+                    <td>
+                        <select id="recipe-category" class="input-form-short-recipes" th:field="*{category}" required>
+                            <option value=""></option>
+                            <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+                        </select>
+                        <div class="text-danger" th:if="${#fields.hasErrors('category')}" th:errors="*{category}">Error</div>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="recipe-calorie">カロリー</label></th>
+                    <td>
+                        <input type="text" id="recipe-calorie" class="input-form-short-recipes" th:field="*{calorie}" required>
+                        <div class="text-danger" th:if="${#fields.hasErrors('calorie')}" th:errors="*{calorie}">Error</div>
+                        <span class="span-table">kcal</span>
+                    </td>
+                </tr>
+                <tr style="height: 150px;">
+                    <th><label for="recipe-image">完成画像</label></th>
+                    <td>
+                        <img th:if="${imageUrl}" th:src="@{'/' + ${getImageUrl}}" width="300px" height="150px" alt="完成画像">
+                        <img th:unless="${imageUrl}" th:src="@{/images/noImage.png}" width="300px" height="150px" alt="完成画像">
+                    </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td><input type="file" id="recipe-image" th:field="*{imageFile}"></td>
+                </tr>
+                <tr>
+                    <th><label for="recipe-time">作成目安時間</label></th>
+                    <td>
+                        <input type="text" id="recipe-time" class="input-form-short-recipes" th:field="*{cookingTime}">
+                        <span class="span-table">分</span>
+                    </td>
+                </tr>
+            </table>
+            <div>
+                <span class="ingredient-label">材料</span>
+                <span class="ingredient-note">注意:1人前の分量を記載してください</span>
+            </div>
+            <table class="form-table" id="ingredients-container">
+              
+                <tr th:each="ingredient, iterStat : ${recipeDTO.ingredients}">
+                    <th><label >材料</label></th>
+                    <td><input type="hidden" th:field="*{ingredients[__${iterStat.index}__].id}">
+                        <input type="text"  class="input-form-short-recipes" th:field="*{ingredients[__${iterStat.index}__].name}" required></td>
+                    <th><label >数量</label></th>
+                    <td><input type="text"  class="input-form-short-recipes" th:field="*{ingredients[__${iterStat.index}__].amount}" required></td>
+                </tr>
+                <!-- ラベルを機能させたい場合（中途） -->
+                <!-- <tr th:each="ingredient, iterStat : ${recipeDTO.ingredients}">
+                    <th><label for="recipe-ingredients-${iterStat.index}">材料</label></th>
+                    <td><input type="hidden" class="input-form-short-recipes" th:field="*{ingredients[__${iterStat.index}__].id}">
+                        <input type="text" id="recipe-ingredients-${iterStat.index}" class="input-form-short-recipes" th:field="*{ingredients[__${iterStat.index}__].name}"></td>
+                    <th><label for="recipe-ingredients-amount-${iterStat.index}">数量</label></th>
+                    <td><input type="text" id="recipe-ingredients-amount-${iterStat.index}" class="input-form-short-recipes" th:field="*{ingredients[__${iterStat.index}__].amount}"></td>
+                </tr> -->
+
+            </table>
+            <button class="add-button-form"  type="button" onclick="addIngredient()">追加</button>
+
+            <div>手順</div>
+            <table class="form-table" id="cookings-container">
+                <tr th:each="cooking, iterStat : ${recipeDTO.cookings}">
+                    <th><label th:text="*{cookings[__${iterStat.index}__].stepNumber}">stepNumber</label></th>
+                    <td><input type="hidden"  th:field="*{cookings[__${iterStat.index}__].id}">
+                        <input type="hidden"  th:field="*{cookings[__${iterStat.index}__].stepNumber}">
+                        <textarea class="input-form-long-recipes" th:field="*{cookings[__${iterStat.index}__].description}" required></textarea></td>
+                </tr>
+                <!-- ラベルを機能させたい場合（中途） -->
+                <!-- <tr th:each="cooking, iterStat : ${recipeDTO.cookings}">
+                    <th><label for="recipe-cookings-description-${iterStat.index}" th:text="*{cookings[__${iterStat.index}__].stepNumber}">stepNumber</label></th>
+                    <td><input type="hidden"  th:field="*{cookings[__${iterStat.index}__].id}">
+                        <input type="hidden"  th:field="*{cookings[__${iterStat.index}__].stepNumber}">
+                        <input type="text" id="recipe-cookings-description-${iterStat.index}" class="input-form-long-recipes" th:field="*{cookings[__${iterStat.index}__].description}"></td>
+                </tr> -->
+            </table>
+            <div>
+                <button class="add-button-form" type="button" onclick="addCooking()">追加</button>
+            </div>
+            <button class="save-button" type="submit">公開</button>
+        </form>
+    </div>
+
+    <script th:src="@{/js/recipes/add-input.js}"></script>
+</body>
+</html>

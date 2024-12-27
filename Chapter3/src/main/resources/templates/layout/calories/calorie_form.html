@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja" th:replace="~{layout/admin-index :: layout(~{::title},~{::link},~{::body/content()})}"
+        xmlns:th="http://www.thymeleaf.org">
+<!--
+管理者画面を編集する方はこちら
+th:replace="~{layout/admin-index :: layout(~{::title},~{::link},~{::body/content()})}"
+一般ユーザーを編集する方はこちら
+th:replace="~{layout/index :: layout(~{::title},~{::link},~{::body/content()})}"
+上記th:replaceを変えて下さい
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="stylesheet" th:href="@{/css/calories/calories.css}">
+    <title>摂取カロリー履歴新規登録</title>
+</head>
+<body>
+    <h1 class="head-h1">摂取カロリー履歴新規登録</h1>
+    <div class="form-container-calorie">
+        <form th:action="@{/save}">
+            <table class="form-table">
+                <tr>
+                    <th><label for="intake_calories">摂取カロリー数</label></th>
+                    <td><input class="input-form-short" type="number" id="intake_calories" ><span class="span-table">kcal</span></td>
+                </tr>
+                <tr>
+                    <th><label for="date">日付</label></th>
+                    <td><input class="input-form-short" type="date" id="date"></td>
+                </tr>
+                <tr>
+                    <th><label for="user_id">ユーザーID</label></th>
+                    <td><input class="input-form-short" type="number" id="user_id"></td>
+                </tr>
+                <tr>
+                    <th><label for="recipe_id">レシピID</label></th>
+                    <td><input class="input-form-short" type="number" id="recipe_id"></td>
+                </tr>
+            </table>
+            <button class="save-button" type="submit">保存</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+.user-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.calories-head{
+    text-align: center;
+    align-items: center;
+    display: flex;
+    gap: 10px;
+}
+
+.calories-head p{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.activity-form {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.activity-items{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 60% 30% 10%;
+}
+
+.activity-items span{
+    text-align: right;
+}
+
+.input-calories{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+    margin-bottom:20px ;
+}
+
+.activity{
+    background-color: #fdf8f1;
+    height: 200px;
+    width: 40%;
+    padding: 20px;
+    text-align: center;
+}
+
+.calorie-input input{
+    display: block;
+}
+
+.title{
+    font-size: 1.5rem;
+}
+
+.time{
+    font-size: 2rem;
+    color: #eb7307;
+}
+
+.recipe-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

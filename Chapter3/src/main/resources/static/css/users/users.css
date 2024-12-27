@@ -1,0 +1,25 @@
+/* フォーム全体 */
+.form-container {
+    display: grid;
+    grid-template-columns: 15% 35% 15% 35%; /* 4列レイアウト */
+    gap: 10px 30px; /* 縦と横の余白 */
+    align-items: center; /* 縦方向の位置を中央揃え */
+    justify-items: stretch;/*おまじない*/
+    /*max-width: 800px; !* フォームの最大幅 *!*/
+    color: #5E5E5E;
+}
+
+/* ラベルのスタイル */
+.form-container label {
+    text-align: left; /* ラベルを左揃え */
+    font-weight: bold;
+}
+
+
+/* 検索ボタンスタイル */
+.form-container .search-button {
+    grid-column: span 4; /* 検索ボタンを4列分広げる */
+    text-align: center;
+}
+
+
