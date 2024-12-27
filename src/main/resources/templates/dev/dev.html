@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org"
+th:replace="~{layout/admin-index :: layout(~{::title},~{::link},~{::body/content()})}">
+<!--
+管理者画面を編集する方はこちら
+th:replace="~{layout/admin-index :: layout(~{::title},~{::link},~{::body/content()})}"
+一般ユーザーを編集する方はこちら
+th:replace="~{layout/index :: layout(~{::title},~{::link},~{::body/content()})}"
+上記th:replaceを変えて下さい
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/dev/dev.css}">
+    <title>404 - Page Not Found</title>
+</head>
+<body>
+<div class="notfound">
+    <h1>404</h1>
+    <p>Oops! The page you are looking for cannot be found.</p>
+    <p><a href="/">Return to Homepage</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja" th:replace="~{layout/admin-index :: layout(~{::title},~{::link},~{::body/content()})}"
+      xmlns:th="http://www.thymeleaf.org">
+<!--
+管理者画面を編集する方はこちら
+th:replace="~{layout/admin-index :: layout(~{::title},~{::link},~{::body/content()})}"
+一般ユーザーを編集する方はこちら
+th:replace="~{layout/index :: layout(~{::title},~{::link},~{::body/content()})}"
+上記th:replaceを変えて下さい
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="stylesheet" th:href="@{/css/users/users.css}">
+    <title>ユーザー管理</title>
+</head>
+<body>
+<h1 class="head-h1">ユーザー管理</h1>
+<div class="content-body">
+    <div class="user-form">
+        <form method="post" th:action="@{/user/create}">
+            <div class="form-container">
+                <label for="search"></label>
+                <input class="input-form-long" id="search" placeholder="ユーザー名で検索" type="text">
+                <div></div> <!-- 空白セル -->
+                <div></div>
+
+                <label for="user-id">ユーザーID</label>
+                <input class="input-form-short" id="user-id" type="text">
+                <label for="role">権限</label>
+                <select class="input-form-short" id="role">
+                    <option>選択</option>
+                </select>
+
+                <label for="email">メールアドレス</label>
+                <input class="input-form-long" id="email" type="email">
+                <div></div>
+                <div></div>
+
+                <label for="age">年齢</label>
+                <input class="input-form-short" id="age" type="number">
+                <label for="era">年代</label>
+                <select class="input-form-short" id="era">
+                    <option>選択</option>
+                </select>
+
+                <label for="gender">性別</label>
+                <select class="input-form-short" id="gender">
+                    <option>選択</option>
+                </select>
+                <label for="register-date">登録日</label>
+                <input class="input-form-short" id="register-date" type="date">
+
+                <div class="search-button">
+                    <button class="add-search-button" type="submit">検索</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="user-mng-list">
+    <div class="content-body-no-color">
+        <button class="add-search-button" th:action="@{/user/create}" type="submit">新規登録</button>
+    </div>
+    <div class="table-container">
+        <table class="common-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>ユーザー名</th>
+                <th>メールアドレス</th>
+                <th>年齢</th>
+                <th>性別</th>
+                <th>権限</th>
+                <th>登録日</th>
+                <th>編集</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>山田 太郎</td>
+                <td>taro.yamada@example.com</td>
+                <td>30</td>
+                <td>男性</td>
+                <td>管理者</td>
+                <td>2023-10-01</td>
+                <td>
+                    <button class="table-button-detail">詳細</button>
+                    <button class="table-button-edit">編集</button>
+                    <button class="table-button-delete">削除</button>
+                </td>
+            </tr>
+            <!-- 他のユーザーのデータをここに追加 -->
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

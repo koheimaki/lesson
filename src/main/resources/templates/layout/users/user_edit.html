@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja" th:replace="~{layout/admin-index :: layout(~{::title},~{::link},~{::body/content()})}"
+      xmlns:th="http://www.thymeleaf.org">
+<!--
+管理者画面を編集する方はこちら
+th:replace="~{layout/admin-index :: layout(~{::title},~{::link},~{::body/content()})}"
+一般ユーザーを編集する方はこちら
+th:replace="~{layout/index :: layout(~{::title},~{::link},~{::body/content()})}"
+上記th:replaceを変えて下さい
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="stylesheet" th:href="@{/css/users/user_edit.css}">
+    <title>ユーザー編集</title>
+</head>
+<body>
+<h1 class="head-h1">ユーザー編集</h1>
+<div class="user-content">
+    <form th:action="@{/create}">
+        <div class="form-container">
+            <label for="email">メールアドレス</label>
+            <input class="input-form-medium" id="email" placeholder="xxx@example.com" type="email">
+
+            <label for="username">ユーザー名</label>
+            <input class="input-form-short" id="username" placeholder="ユーザーA" type="text">
+
+            <label for="age">生年月日</label>
+            <input class="input-form-short" id="age" placeholder="27" type="number">
+
+            <label for="gender">性別</label>
+            <select class="input-form-short" id="gender">
+                <option>男性</option>
+                <option>女性</option>
+            </select>
+
+            <label for="role">権限</label>
+            <select class="input-form-short" id="role">
+                <option>一般</option>
+                <option>管理者</option>
+            </select>
+        </div>
+        <div class="content-body-no-color">
+            <input class="save-button" type="button" value="保存">
+        </div>
+    </form>
+</div>
+</body>
+</html>

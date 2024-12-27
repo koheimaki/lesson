@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="ja" th:replace="~{layout/admin-index :: layout(~{::title},~{::link},~{::body/content()})}"
+        xmlns:th="http://www.thymeleaf.org">
+
+<!--
+管理者画面を編集する方はこちら
+th:replace="~{layout/admin-index :: layout(~{::title},~{::link},~{::body/content()})}"
+一般ユーザーを編集する方はこちら
+th:replace="~{layout/index :: layout(~{::title},~{::link},~{::body/content()})}"
+上記th:replaceを変えて下さい
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="stylesheet" th:href="@{/css/calories/calories.css}">
+    <title>摂取カロリー履歴管理</title>
+</head>
+<body>
+<h1 class="head-h1">摂取カロリー履歴管理</h1>
+<div class="content-body">
+    <div class="form-container-calorie">
+        <form> <!--method="post" th:action="@{/calories/new}"-->
+            <table class="form-table">
+                <tr>
+                    <th><label class="form-container-calorie-label">摂取カロリー履歴ID</label></th>
+                    <td><input class="input-form-short" type="text"></td>
+                </tr>
+                <tr>
+                    <th><label class="form-container-calorie-label">15分あたりの消費カロリー</label></th>
+                    <td>
+                        <select class="input-form-short">
+                            <option value=""></option>
+                            <option value="-200kcal">200kcal以下</option>
+                            <option value="201-400kcal">201-400kcal</option>
+                            <option value="401-600kcal">401-600kcal</option>
+                            <option value="601-800kcal">601-800kcal</option>
+                            <option value="801-1,000kcal">801-1,000kcal</option>
+                            <option value="1,000kcal-">1,000kcal以上</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label class="form-container-calorie-label">日付</label></th>
+                    <td><input class="input-form-short" type="text"></td>
+                </tr>
+                <tr>
+                    <th><label class="form-container-calorie-label">ユーザーID</label></th>
+                    <td><input class="input-form-short" type="text"></td>
+                </tr>
+                <tr>
+                    <th><label class="form-container-calorie-label">レシピID</label></th>
+                    <td><input class="input-form-short" type="text"></td>
+                </tr>
+            </table>
+                <div class="form-button-container">
+                    <input class="add-search-button" type="submit" value="検索">
+                </div>
+        </form>
+    </div>
+</div>
+<div>
+    <button class="add-search-button">新規登録</button><!--th:action="@{/calories/new}" type="submit"-->
+    <div class="content-body">
+        <div class="table-container">
+            <table class="common-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>摂取カロリー数</th>
+                        <th>日付</th>
+                        <th>ユーザーID</th>
+                        <th>レシピID</th>
+                        <th>編集</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>1,000</td>
+                        <td>2024-12-12</td>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>
+                            <button type="button" class="table-button-edit">編集</button>
+                            <button type="button" class="table-button-delete">削除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>200</td>
+                        <td>2024-12-12</td>
+                        <td>1</td>
+                        <td>6</td>
+                        <td>
+                            <button type="button" class="table-button-edit">編集</button>
+                            <button type="button" class="table-button-delete">削除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>700</td>
+                        <td>2024-12-10</td>
+                        <td>3</td>
+                        <td>1</td>
+                        <td>
+                            <button type="button" class="table-button-edit">編集</button>
+                            <button type="button" class="table-button-delete">削除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>550</td>
+                        <td>2024-12-07</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>
+                            <button type="button" class="table-button-edit">編集</button>
+                            <button type="button" class="table-button-delete">削除</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja" th:replace="~{layout/admin-index :: layout(~{::title},~{::link},~{::body/content()})}" xmlns:th="http://www.thymeleaf.org">
+<!--
+管理者画面を編集する方はこちら
+th:replace="~{layout/admin-index :: layout(~{::title},~{::link},~{::body/content()})}"
+一般ユーザーを編集する方はこちら
+th:replace="~{layout/index :: layout(~{::title},~{::link},~{::body/content()})}"
+上記th:replaceを変えて下さい
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="stylesheet" th:href="@{/css/recipes/recipes.css}">
+    <title>レシピ一覧</title>
+</head>
+<body>
+<div class="search-wrap">
+    <form class="search-form" method="get" th:action="@{/recipes/admin}">
+        <div class="recipe-head">
+            <label>
+                <input class="input-form-long" name="keyword" placeholder="レシピ名で検索" th:value="${keyword}" type="text">
+            </label>
+        </div>
+        <div class="search-container">
+            <label for="recipe-category">カテゴリー</label>
+            <select class="input-form-short" id="recipe-category">
+                <option hidden value=""></option>
+                <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+            </select>
+            <label for="recipe-calorie">カロリー</label>
+            <select class="input-form-short" id="recipe-calorie">
+                <option hidden value=""></option>
+                <option value="-200kcal">200kcal以下</option>
+                <option value="201-400kcal">201-400kcal</option>
+                <option value="401-600kcal">401-600kcal</option>
+                <option value="601-800kcal">601-800kcal</option>
+                <option value="801-1,000kcal">801-1,000kcal</option>
+                <option value="1,000kcal-">1,000kcal以上</option>
+            </select>
+            <button class="add-search-button" type="submit">検索</button>
+        </div>
+    </form>
+</div>
+<div class="head-image">
+    <a class="underline-none" th:href="@{/admin/recipes/detail/{recipeId}(recipeId=${newRecipe.id})}">
+        <img th:if="${newRecipe.getImageUrl()}" th:src="@{'/' + ${newRecipe.getImageUrl}}" alt="レシピ完成画像" height="500px" width="700px">
+        <img th:unless="${newRecipe.getImageUrl}" th:src="@{/images/noImage.png}" alt="レシピ完成画像" height="500px" width="700px">
+        <h2  class="head-recipename-big" th:text="${newRecipe.getName()}"></h2>
+    </a>
+    <div>
+        <a class="underline-none" th:href="@{/admin/recipes/edit/{id}(id=${newRecipe.id})}">
+            <button class="common-button-edit" type="button">編集</button>
+        </a>
+        <a class="underline-none" th:href="@{/admin/recipes/delete/{id}(id=${newRecipe.id})}">
+            <button class="common-button-delete"  type="button">削除</button>
+        </a>
+    </div>
+</div>
+<div class="image-wrap">
+    <div class="image-box" th:each="recipe : ${recipes}">
+        <a class="underline-none" th:href="@{/admin/recipes/detail/{recipeId}(recipeId=${recipe.id})}">
+            <img th:if="${recipe.getImageUrl()}" th:src="@{'/' + ${recipe.getImageUrl}}" alt="レシピ完成画像" height="150px" width="200px">
+            <img th:unless="${recipe.getImageUrl}" th:src="@{/images/noImage.png}" alt="レシピ完成画像" height="150px" width="200px">
+            <h3 th:text="${recipe.getName()}"></h3>
+        </a>
+        <div>
+            <a class="underline-none" th:href="@{/admin/recipes/edit/{id}(id=${recipe.id})}">
+                <button type="button" class="table-button-edit">編集</button>
+            </a>
+            <a class="underline-none" th:href="@{/admin/recipes/delete/{id}(id=${recipe.id})}">
+                <button class="common-button-delete"  type="button">削除</button>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

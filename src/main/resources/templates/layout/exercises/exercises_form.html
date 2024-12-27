@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja" th:replace="~{layout/admin-index :: layout(~{::title},~{::link},~{::body/content()})}"
+    xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/exercises/style.css}">
+    <title>運動新規登録</title>
+</head>
+
+<body>
+    <h1 class="head-h1">運動新規登録</h1>
+    <div class="exercise-container">
+        <form th:href="@{#}" th:action="post">
+            <div class="form-container">
+
+                <label for="name">運動名</label>
+                <input type="text" class="input-form-long">
+                
+                <label for="calorie">15分あたりの消費カロリー</label>
+                <input type="text" class="input-form-short"><span>kcal</span>
+                
+            </div>
+            <button type="submit" class="save-button">保存</button>
+
+        </form>
+
+    </div>
+</body>
+
+</html>

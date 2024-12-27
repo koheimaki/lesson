@@ -1,0 +1,255 @@
+/*** aリンク下線を消す***/
+.underline-none {
+    text-decoration: none !important;
+}
+
+/****** レシピ一覧 ******/
+
+.head-recipename-big {
+    font-size: 3rem;
+    margin:10px 0 0 0;
+    text-decoration: none;
+    color: #5E5E5E;
+}
+/* 'head-image' クラスの要素内の内容を水平方向に中央揃えします */
+.head-image{
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
+.search-wrap {
+    /* 親要素内でコンテンツを中央揃えにするための設定 */
+    justify-items: center;
+}
+
+/* 入力フォームの外観をカスタマイズ */
+.input-form-short {
+    /* 入力欄の幅を90%に設定 */
+    width: 90%;
+    /* 入力欄の高さを40pxに設定 */
+    height: 40px;
+    /* アウトライン（フォーカス時の枠線）なし */
+    outline: none;
+    /* 薄いグレー色の枠線を適用 */
+    border: solid 3px #d3d3d3;
+    /* 枠線を丸めて角を5pxの半径にする */
+    border-radius: 5px;
+}
+
+.search-form {
+    /* 検索フォーム全体の幅を80%に設定 */
+    width: 80%;
+    margin: 20px 0;
+    margin-bottom: 50px;
+}
+
+.search-container {
+    /* 子要素をグリッドでレイアウトする */
+    display: grid;
+    /* グリッドの列幅を指定、合計100%で配置 */
+    grid-template-columns: 10% 25% 10% 25% 20%;
+    /* 子要素を上下方向の中央に揃える */
+    align-items: center;
+    /* グリッド内の項目同士の間隔を10pxに設定 */
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.image-box{
+    margin:0 0 25px 0;
+    text-align: center;
+}
+
+.image-box h3{
+    margin:7px 0 0 0;
+    color: #5E5E5E;
+}
+
+/***** レシピ詳細 *******/
+.detail-name {
+    border-bottom: 1px solid #929292;
+    border-bottom-width: 1px;
+    padding-bottom: 0;
+}
+
+.detail-h2 {
+    font-size: 2rem;
+    color: #5E5E5E;
+    margin: 0 0 15px 0;
+}
+
+.detail-h3 {
+    font-size: 1.5rem;
+    color: #5E5E5E;
+    margin: 24px 0 5px 0;
+}
+
+.detail-calorie {
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: right;
+}
+
+.detail-table {
+    width: 100%; /* テーブルを全幅に設定 */
+    border-collapse: collapse; /* 枠線を重ならないようにする */
+    margin: 20px auto; /* 上下に余白を確保し、中央ぞろえ */
+    text-align: left; /* テーブル内のテキストを左揃え */
+    color: #5E5E5E; /* 文字色をグレーに設定 */
+    table-layout: auto;
+}
+
+.detail-table th:first-child,
+.detail-table td:first-child {
+    padding: 5px 5px 5px 30px; /* ヘッダーの材料名列の幅を設定 */
+    width: 300px;
+}
+
+.detail-table th:nth-child(2),
+.detail-table td:nth-child(2) {
+    padding: 5px 5px 5px 30px; /* ヘッダーの材料名列の幅を設定 */
+    width: auto;
+}
+
+.detail-table-cooking {
+    width: 100%; /* テーブルを全幅に設定 */
+    border-collapse: collapse; /* 枠線を重ならないようにする */
+    margin: 20px 30px; /* 上下に余白を確保し、中央ぞろえ */
+    text-align: left; /* テーブル内のテキストを左揃え */
+    color: #5E5E5E; /* 文字色をグレーに設定 */
+    table-layout: fixed;
+}
+
+/* テーブルのタイトル行 (ヘッダー),通常行 (ボディ) */
+.detail-table-cooking thead th,
+.detail-table tbody td {
+    padding: 5px; /* セル内に余白を追加 */
+    min-width: 30px; /* 最小幅を指定 */
+}
+
+.detail-table-cooking th:first-child,
+.detail-table-cooking td:first-child {
+    width: 50px; /* ヘッダーの手順番号列の幅を設定 */
+}
+
+/* 画像下のレシピ情報 */
+.recipe-into{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 画像下のレシピ情報のユーザー名 */
+.recipe-into .recipe-uploader{
+    font-size: 14px;
+    color: #5E5E5E;
+    white-space: nowrap;
+    width: 50%;
+    text-decoration: underline;
+}
+
+/* 画像下のレシピ情報のカロリー数 */
+.recipe-into .recipe-calories{
+    font-size: 30px;
+    font-weight: bold;
+    color: #5E5E5E;
+    text-align: right;
+    white-space: nowrap;
+    width: 20%;
+}
+
+/**** 新規作成 ・ 編集****/
+/* フォーム全体のレイアウト */
+.form-container-recipes{
+    gap: 10px 20px; /* 縦10px、横20pxの余白を追加 */
+    max-width: 100%; /* 横幅を最大に設定 */
+    margin: 0 auto; /* フォームを中央揃え */
+    padding: 20px; /* 内側余白 */
+}
+
+.form-table{
+    margin-left: 100px;
+    width: 700px;
+    font-weight: normal;
+    text-align: left;
+}
+
+.form-table th{
+    font-weight: normal;
+    width: 100px;
+    text-align: left;
+}
+
+.form-table td{
+    width: 201px;
+    margin: 3px 0;
+    text-align: left;
+}
+
+.form-table-body{
+    width: 700px;
+    font-weight: normal;
+    text-align: left;
+}
+
+.form-table-body th{
+    font-weight: normal;
+    width: 100px;
+    text-align: left;
+}
+
+.form-table-body td{
+    width: 201px;
+    margin: 3px 0;
+    text-align: left;
+}
+
+.input-form-short-recipes{
+    margin:2px 0;
+    width: 200px;
+    height: 40px; /* 縦幅を40pxに設定 */
+    outline: none; /* フォーカス時の枠線を非表示 */
+    border: solid 3px #d3d3d3; /* グレーで枠線を追加 */
+    border-radius: 5px; /* 入力フォーム角を丸く設定 */
+}
+
+.input-form-short-recipes-image{
+    margin:2px 0;
+    width: 200px;
+    height: 40px; /* 縦幅を40pxに設定 */
+    outline: none; /* フォーカス時の枠線を非表示 */
+    vertical-align: middle;
+}
+
+/* 長い入力フォーム */
+.input-form-long-recipes {
+    width: 550px; /* 横幅を100%に設定 */
+    height: 50px; /* 縦幅を50pxに設定 */
+    outline: none; /* フォーカス時の枠線を非表示 */
+    border: solid 3px #d3d3d3; /* グレーで枠線を追加 */
+    border-radius: 5px; /* 入力フォーム角を丸く設定 */
+}
+
+.add-button-form{
+    margin: 2px 0 2px 220px;
+    width: 100px;
+    height: 30px;
+    background-color: #D5D5D5; /* ボタンの背景色を緑色に設定 */
+    color: black; /* ボタンの文字色を白色に設定 */
+    border-radius: 1px; /* 枠線角を丸くする */
+    border: none; /* 標準の枠線を削除 */
+}
+
+.span-table{
+    margin-left: 10px;
+}
+
+.ingredient-label {
+    margin-right: 60px; /* 「材料」と「注意」の間にスペースを追加 */
+}
+
+.ingredient-note {
+    color: red; /* 色を変更（例として赤に変更） */
+}

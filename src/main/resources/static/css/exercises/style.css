@@ -1,0 +1,59 @@
+
+a{text-decoration: none;
+    color: white; 
+}
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* gap: 10px 20px; */
+     /* 縦10px、横20pxの余白を追加 */
+    width: 100%; /* 横幅を最大に設定 */
+    align-items: center;
+    /*中央揃え*/
+    box-sizing: border-box;
+}
+
+.form-container label{
+    width:40%;
+    text-align: left; /* テキストを左寄せ */
+    font-weight: bold; /* 太字にする */
+    box-sizing: border-box;
+}
+
+.input-form-short {
+    width: 30%; /* 横幅を30%に設定 */
+    height: 40px; /* 縦幅を40pxに設定 */
+    outline: none; /* フォーカス時の枠線を非表示 */
+    border: solid 3px #d3d3d3; /* グレーで枠線を追加 */
+    border-radius: 5px; /* 入力フォーム角を丸く設定 */
+    box-sizing: border-box;
+}
+
+
+
+
+/* 長い入力フォーム */
+.input-form-long {
+    width: 50%; /* 横幅を100%に設定 */
+    height: 50px; /* 縦幅を50pxに設定 */
+    outline: none; /* フォーカス時の枠線を非表示 */
+    border: solid 3px #d3d3d3; /* グレーで枠線を追加 */
+    border-radius: 5px; /* 入力フォーム角を丸く設定 */
+    box-sizing: border-box;
+}
+
+
+.form-container span{
+    
+    width: 20%;
+    font-weight: bold;
+    box-sizing: border-box;
+    
+}
+
+.content-body {
+    background-color: #f7f7f7; /* 背景色を薄いグレーに設定 */
+    padding: 20px; /* 内側余白を追加 */
+    margin: 20px;
+}

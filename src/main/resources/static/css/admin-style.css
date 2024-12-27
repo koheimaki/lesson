@@ -1,0 +1,108 @@
+/* 全体レイアウトの設定 */
+body {
+  margin: 0; /* ページ全体の余白を無効化 */
+  font-family: Arial, sans-serif; /* ページ全体のフォント設定 */
+  overflow-x: hidden; /* 横方向のスクロールを非表示 */
+}
+
+/* ヘッダーセクションの設定 */
+header {
+  border-bottom: 3px solid #d3d3d3; /* ヘッダーの下に薄いグレーの境界線を表示 */
+}
+
+.header-container {
+  margin-left: 20px; /* 左側の余白 */
+  width: 100%; /* 幅を全体にフィットさせる */
+  height: 110px; /* ヘッダーの高さ */
+  display: flex; /* 子要素を横並びに配置 */
+  justify-content: space-between; /* 子要素を左右に分離して配置 */
+  align-items: center; /* 子要素を中央揃え */
+  overflow-x: hidden; /* 横方向のスクロールを非表示 */
+}
+
+.header-logo img {
+  width: auto; /* 幅は自動調整 */
+  height: 80px; /* ロゴ画像の高さ */
+}
+
+/* ログアウト部分の設定 */
+.header-logout {
+  display: flex; /* 子要素を横並びに配置 */
+  align-items: center; /* 子要素の垂直方向の中央揃え */
+}
+
+.header-logout a {
+  text-decoration: none; /* リンクの下線を削除 */
+  padding: 0 20px; /* 上下の余白を0、左右の余白を20pxに設定 */
+  margin-right: 20px; /* リンクの右側に余白を設定 */
+  color: #eb7307; /* リンクの文字色 */
+  border: 3px solid #eb7307; /* リンクの枠線の色 */
+  border-radius: 30px; /* リンクの角を丸くする */
+}
+
+.header-logout h4 {
+  margin-left: 10px; /* 左側に余白を設定 */
+  padding: 10px; /* コンテンツ周りの内側余白を設定 */
+  border-radius: 5px; /* 角を丸くする */
+  background-color: #aaaaaa; /* 背景色（グレー） */
+  color: white; /* 文字色を白に設定 */
+  margin-right: 20px; /* 右側に余白を設定 */
+}
+
+/* コンテンツ全体の配置 */
+.container {
+  display: flex; /* 子要素を横並びに配置 */
+}
+
+/* サイドバーの基本設定 */
+.sidebar {
+  top: 110px; /* ヘッダー下に配置 */
+  margin-left: 10px; /* 左側に余白を設定 */
+  width: 200px; /* サイドバーの幅 */
+  background-color: white; /* 背景色を白に設定 */
+  color: #eb7307; /* サイドバー内の文字色 */
+}
+
+/* メニューリンクのスタイル */
+.menu {
+  color: #eb7307; /* メニューリンクの文字色 */
+  text-decoration: none; /* リンクの下線を削除 */
+}
+
+.my-page {
+  color: #eb7307; /* マイページリンクの文字色 */
+  text-decoration: none; /* リンクの下線を削除 */
+}
+
+/* サイドバー内の個別リンクアイテムの設定 */
+.category {
+  color: black; /* リンクの通常時の文字色 */
+  text-decoration: none; /* リンクの下線を削除 */
+  display: block; /* ブロック要素として表示 */
+  padding: 10px; /* 内側余白を設定 */
+  border-radius: 5px; /* 各アイテムの角を丸く設定 */
+  transition: background-color 0.3s ease; /* 背景色のホバーアニメーションをスムーズに設定 */
+}
+
+.sidebar a:hover {
+  background-color: #d3d3d3; /* ホバー時に背景色をグレーに変更 */
+}
+
+.sidebar li {
+  list-style: none; /* リストアイテムの箇条書きマーカーを非表示 */
+}
+
+/* メインコンテンツのスタイル設定 */
+.main-content {
+  padding: 20px; /* コンテンツの内側余白を設定 */
+  border-left: 3px solid #d3d3d3; /* 左側に薄いグレーの境界線を設定 */
+  width: 100%; /* 幅を全体に対応させる */
+}
+
+/* フッター部分の設定 */
+footer {
+  text-align: center; /* フッター内のコンテンツを中央揃え */
+  background-color: grey; /* 背景色をグレーに設定 */
+  color: white; /* 文字色を白に設定 */
+  padding: 1px; /* 内側余白を小さく設定 */
+}

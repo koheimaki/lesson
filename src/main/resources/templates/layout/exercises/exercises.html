@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja" th:replace="~{layout/admin-index :: layout(~{::title},~{::link},~{::body/content()})}"
+    xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/exercises/style.css}">
+    <title>運動一覧</title>
+</head>
+
+<body>
+    <h1 class="head-h1">運動管理</h1>
+    <button class="add-search-button"><a th:href="@{#}">新規登録</a></button>
+    <div class="table-container content-body">
+    <table class="common-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>運動名</th>
+                <th>15分当たりの消費カロリー(kcal)</th>
+                <th>編集</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>ウォーキング</td>
+                <td>1000</td>
+                <td><a th:href="@{#}"><button class="table-button-edit">編集</a></button>
+                    <button class="table-button-delete"><a th:href="@{#}">削除</a></button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+
+</html>
